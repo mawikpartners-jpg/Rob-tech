@@ -123,13 +123,13 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="bg-primary-600 rounded-lg p-8 text-white">
-              <h4 className="text-xl font-bold mb-2">Potrzebujesz Transportu Dzisiaj?</h4>
+              <h4 className="text-xl font-bold mb-2">Potrzebujesz renowacji przyczepy?</h4>
               <p className="mb-4">Skontaktuj się z nami natychmiast!</p>
               <a
                 href="tel:+48581234567"
                 className="inline-block bg-white text-primary-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
               >
-                📞 Zadzwoń Teraz
+                Zadzwoń Teraz
               </a>
             </div>
           </div>

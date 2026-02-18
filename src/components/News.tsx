@@ -4,22 +4,25 @@ import Card from './UI/Card';
 const News: React.FC = () => {
   const news = [
     {
-      title: 'Nowa kolekcja przyczep 2025',
-      date: '15 stycznia 2025',
-      content: 'Introducing our latest trailer designs with improved aerodynamics and fuel efficiency.',
+      title: 'Nowa partia przyczep niskopodwoziowych – dostępne od ręki',
+      date: '10 lutego 2026',
+      content: 'Do sprzedaży trafiły przyczepy niskopodwoziowe po pełnej renowacji. Udźwig 24 t i 30 t. Stan: po piaskowaniu, spawaniu i malowaniu epoksydowym. Możliwość odbioru osobistego lub dostawy.',
       image: '/2025-06-04.webp',
+      tag: 'Oferta',
     },
     {
-      title: 'Rozszerzenie usług transportowych',
-      date: '10 stycznia 2025',
-      content: 'Rob-Tech rozszerza swoją ofertę o transport specjalistyczny wózków widłowych.',
+      title: 'Realizacja: transport kombajnu John Deere – 620 km',
+      date: '28 stycznia 2026',
+      content: 'Zrealizowaliśmy transport kombajnu zbożowego na trasie Podkarpacie – Kujawy. Ładunek ponadgabarytowy, przejazd nocny. Własna przyczepa niskopodwoziowa 30 t, pilot.',
       image: '/2025-06-06.webp',
+      tag: 'Realizacja',
     },
     {
-      title: 'Certyfikacja ISO 9001',
-      date: '5 stycznia 2025',
-      content: 'Z dumą ogłaszamy uzyskanie międzynarodowego certyfikatu ISO 9001 dla systemów zarządzania jakością.',
+      title: 'Spawanie i renowacja platform dla klienta z branży budowlanej',
+      date: '15 stycznia 2026',
+      content: 'Zakończyliśmy renowację trzech platform najazdowych dla firmy budowlanej z Wielkopolski. Zakres: piaskowanie, wymiana desek, naprawa układu hamulcowego, malowanie.',
       image: '/2025-06-13.webp',
+      tag: 'Realizacja',
     },
   ];
 
@@ -28,24 +31,28 @@ const News: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           title="Aktualności"
-          subtitle="Najnowsze wiadomości z Rob-Tech"
+          subtitle="Realizacje, dostępny sprzęt i bieżące informacje"
           centered
         />
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {news.map((item, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="h-48 overflow-hidden">
+            <Card key={index} className="overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
+                <span className="absolute top-3 left-3 bg-primary-600 text-white text-xs font-semibold px-2.5 py-1 rounded">
+                  {item.tag}
+                </span>
               </div>
               <div className="p-6">
-                <p className="text-accent-600 text-sm font-semibold mb-2">{item.date}</p>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.content}</p>
+                <p className="text-gray-400 text-xs font-medium mb-2 uppercase tracking-wide">{item.date}</p>
+                <h3 className="text-base font-bold text-gray-900 mb-3 leading-snug">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.content}</p>
               </div>
             </Card>
           ))}

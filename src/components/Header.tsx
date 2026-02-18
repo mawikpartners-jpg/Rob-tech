@@ -5,7 +5,7 @@ const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'O nas', href: '#about' },
+    { label: 'Dlaczego my', href: '#about' },
     { label: 'Usługi', href: '#services' },
     { label: 'Galeria', href: '#gallery' },
     { label: 'Opinie', href: '#testimonials' },
@@ -26,7 +26,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-primary-600">Rob-Tech</h1>
+            <img
+              src="/ROB-TECH LOGO (POZIOM).png"
+              alt="Rob-Tech"
+              className="h-10 md:h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -35,7 +39,7 @@ const Header: React.FC = () => {
               <button
                 key={link.label}
                 onClick={() => scrollToSection(link.href)}
-                className="text-gray-700 hover:text-primary-600 transition-colors duration-300 font-medium"
+                className="text-gray-700 hover:text-primary-600 transition-colors duration-300 font-medium text-sm tracking-wide uppercase"
               >
                 {link.label}
               </button>
@@ -48,42 +52,23 @@ const Header: React.FC = () => {
               onClick={() => scrollToSection('#contact')}
               size="md"
             >
-              Kontakt
+              Zapytaj o ofertę
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-primary-600 hover:text-primary-700 focus:outline-none"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 focus:outline-none"
+            aria-label="Menu"
           >
             {menuOpen ? (
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </button>
@@ -91,23 +76,23 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <nav className="md:hidden pb-4 space-y-2">
+          <nav className="md:hidden pb-4 space-y-1 border-t border-gray-100 pt-2">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => scrollToSection(link.href)}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-600 rounded transition-colors duration-300 font-medium"
+                className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors duration-200 font-medium text-sm uppercase tracking-wide"
               >
                 {link.label}
               </button>
             ))}
-            <div className="px-4 py-2">
+            <div className="px-4 pt-2 pb-1">
               <Button
                 onClick={() => scrollToSection('#contact')}
                 size="md"
                 className="w-full"
               >
-                Kontakt
+                Zapytaj o ofertę
               </Button>
             </div>
           </nav>
