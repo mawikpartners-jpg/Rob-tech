@@ -1,120 +1,230 @@
+import { motion, Variants } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import SectionTitle from './UI/SectionTitle';
 import Card from './UI/Card';
 
 const About: React.FC = () => {
-  const values = [
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const timelineSteps = [
+    { step: 1, title: 'Skupujemy', desc: 'Używane przyczepy / platformy' },
+    { step: 2, title: 'Rozbieramy', desc: 'Do gołej bazy' },
+    { step: 3, title: 'Piaskujemy', desc: 'Usuwamy korozję' },
+    { step: 4, title: 'Spawamy', desc: 'Naprawiamy i wzmacniamy' },
+    { step: 5, title: 'Przerabiamy', desc: 'Dostosowujemy do potrzeb' },
+    { step: 6, title: 'Instalacje', desc: 'Pneumatyka i elektryka' },
+  ];
+
+  const features = [
     {
       icon: (
-        <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      ),
+      title: 'Pełna renowacja',
+      description: 'Kupujemy używane, gruntowo przerabiamy i sprzedajemy "jak nowe" ~50% taniej.',
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+            d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+        </svg>
+      ),
+      title: 'Tworzymy na zamówienie',
+      description: 'Słuchamy Twoich potrzeb i tworzymy coś specjalnie dla Ciebie.',
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
             d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
-      title: 'Selekcja baz',
-      description: 'Dobieramy wyłącznie przyczepy z solidną ramą i sprawdzoną konstrukcją. Wykluczone są egzemplarze z korozją strukturalną.',
+      title: 'Grube materiały i wzmocnienie',
+      description: 'U nas dostajesz pełny produkt - bez półśrodków i oszczędzaniu na materiale.',
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       ),
-      title: 'Pełna renowacja',
-      description: 'Piaskowanie do czystego metalu, spawanie, wymiana elementów eksploatacyjnych, malowanie proszkowe lub farbą epoksydową.',
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
-      title: 'Cena ~50% nowego',
-      description: 'Unikasz kosztów pierwszej amortyzacji. Sprzęt po renowacji jest trwalszy niż nowe budżetowe odpowiedniki z importu.',
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: 'Doświadczenie',
-      description: 'Wieloletnia praktyka w renowacji i produkcji przyczep. Każde zlecenie realizujemy z pełną odpowiedzialnością za efekt końcowy.',
+      title: 'Praktyczne i autorskie rozwiązania',
+      description: 'Dążymy do perfekcji, dlatego wprowadzamy ułatwienia, które wiemy, że są potrzebne na rynku.',
     },
   ];
 
+  const checkmarks = [
+    'Wyselekcjonowane bazy',
+    'Sprawdzona praktyka',
+    '100% solidne wykonanie',
+  ];
+
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto">
-        <SectionTitle
-          title="Dlaczego Rob-Tech"
-          subtitle="Renowowane przyczepy klasy premium w rozsądnej cenie"
-          centered
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionTitle
+            title="Co robimy inaczej?"
+            subtitle="Rob-Tech, solidna firma z zasadami"
+            centered
+          />
+        </motion.div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-12 items-start">
-          {/* Text content */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-5">
-              Solidniejsze niż nowe budżetowe. Tańsze niż nowe premium.
-            </h3>
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              Nowe tanie przyczepy z importu często mają cienkie blachy, słabe spawy i elementy,
-              które nie wytrzymują intensywnej eksploatacji. Nowe przyczepy klasy premium kosztują
-              dużo – i większość tej ceny tracisz przy pierwszej odsprzedaży.
-            </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Rob-Tech oferuje trzecią drogę: przyczepy po profesjonalnej renowacji. Solidna baza,
-              nowa powłoka antykorozyjna, wymienione elementy eksploatacyjne. Sprzęt gotowy do pracy
-              – za około połowę ceny nowego.
-            </p>
+        {/* Main text */}
+        <motion.div
+          className="mt-12 text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Wiemy jak to wygląda w praktyce, dlatego tworzymy rozwiązania, których sami chcielibyśmy używać.
+          </p>
+        </motion.div>
 
-            <div className="space-y-5">
-              {[
-                {
-                  title: 'Piaskowanie do czystego metalu',
-                  desc: 'Usuwamy starą powłokę i korozję powierzchniową. Blacha jest oceniana przed dalszym procesem.',
-                },
-                {
-                  title: 'Spawanie i wzmocnienia',
-                  desc: 'Naprawiamy pęknięcia, wzmacniamy newralgiczne punkty ramy. Spawy wykonywane metodą MIG/MAG.',
-                },
-                {
-                  title: 'Wymiana elementów eksploatacyjnych',
-                  desc: 'Łożyska, hamulce, oświetlenie, elementy hydrauliki – wymieniamy to, co ma wpływ na bezpieczeństwo.',
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <svg className="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{item.title}</p>
-                    <p className="text-gray-500 text-sm mt-0.5">{item.desc}</p>
-                  </div>
+        {/* Timeline */}
+        <motion.div
+          className="mt-16 relative"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {/* Timeline line */}
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary-200 via-primary-500 to-accent-500 transform -translate-y-1/2 rounded-full" />
+          
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-2">
+            {timelineSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="relative flex flex-col items-center text-center"
+              >
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg shadow-lg z-10">
+                  {step.step}
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Value cards */}
-          <div className="grid grid-cols-2 gap-4">
-            {values.map((value, index) => (
-              <Card key={index} className="p-6">
-                <div className="mb-3">{value.icon}</div>
-                <h4 className="text-base font-bold text-gray-900 mb-2">
-                  {value.title}
-                </h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{value.description}</p>
-              </Card>
+                <h4 className="mt-4 font-bold text-gray-900 text-sm">{step.title}</h4>
+                <p className="text-gray-500 text-xs mt-1">{step.desc}</p>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
+
+        {/* Before/After images */}
+        <motion.div
+          className="mt-16 grid md:grid-cols-2 gap-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <div className="relative overflow-hidden rounded-2xl shadow-xl group">
+            <img
+              src="/2024-12-22.webp"
+              alt="Przed renowacją"
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <span className="text-white font-bold text-lg">Proces renowacji</span>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-xl group">
+            <img
+              src="/2025-04-06.webp"
+              alt="Po renowacji"
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <span className="text-white font-bold text-lg">Gotowy produkt</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Result text */}
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
+            Tworzymy trwałe i solidne rozwiązanie na zamówienie - gotowe do intensywnej eksploatacji 
+            <span className="text-accent-600 font-bold"> (za połowę ceny)</span>.
+          </p>
+        </motion.div>
+
+        {/* Feature cards */}
+        <motion.div
+          className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {features.map((feature, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <Card className="p-6 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="mb-4 p-3 bg-accent-50 rounded-xl inline-block">
+                  {feature.icon}
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Checkmarks */}
+        <motion.div
+          className="mt-12 flex flex-wrap justify-center gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+        >
+          {checkmarks.map((item, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span className="text-gray-700 font-medium">{item}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

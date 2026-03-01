@@ -50,12 +50,14 @@ export interface ButtonProps {
 export interface CardProps {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
 export interface SectionTitleProps {
   title: string;
   subtitle?: string;
   centered?: boolean;
+  dark?: boolean;
 }
 
 export interface LazyImageProps {

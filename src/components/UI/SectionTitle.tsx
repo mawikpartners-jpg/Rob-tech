@@ -1,13 +1,13 @@
 import { SectionTitleProps } from '../../types';
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, centered = true }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, centered = true, dark = false }) => {
   return (
     <div className={centered ? 'text-center' : ''}>
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${dark ? 'text-white' : 'text-gray-900'}`}>
         {title}
       </h2>
       {subtitle && (
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className={`text-xl max-w-3xl mx-auto ${dark ? 'text-gray-300' : 'text-gray-600'}`}>
           {subtitle}
         </p>
       )}

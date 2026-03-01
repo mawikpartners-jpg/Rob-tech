@@ -1,7 +1,51 @@
+import { useState, useRef } from 'react';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import SectionTitle from './UI/SectionTitle';
 import Card from './UI/Card';
 
+interface ServiceImages {
+  [key: string]: string[];
+}
+
 const Services: React.FC = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const serviceImages: ServiceImages = {
+    'Przyczepy niskopodwoziowe': ['/2024-12-22.webp', '/2024-12-25.webp', '/2025-04-06.webp'],
+    'Platformy najazdowe': ['/2024-12-28.webp', '/2024-12-223.webp', '/2025-02-02.webp'],
+    'Piaskowanie': ['/2025-03-071.webp', '/2024-12-232.webp', '/2024-12-262.webp'],
+    'Spawanie konstrukcji': ['/2025-03-01.webp', '/2024-12-278.webp', '/2025-05-11.webp'],
+    'Transport maszyn rolniczych': ['/2025-04-07.webp', '/2025-05-22.webp', '/2025-05-31.webp'],
+    'Transport maszyn budowlanych': ['/2025-06-04.webp', '/2025-06-06.webp', '/2025-06-13.webp'],
+  };
+
   const services = [
     {
       icon: (
@@ -67,29 +111,180 @@ const Services: React.FC = () => {
     },
   ];
 
-  return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <SectionTitle
-          title="Usługi"
-          subtitle="Produkcja, renowacja i transport ciężki – kompleksowa obsługa w jednym miejscu"
-          centered
-        />
+  const openGallery = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+    setCurrentImageIndex(0);
+  };
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  const closeGallery = () => {
+    setSelectedService(null);
+    setCurrentImageIndex(0);
+  };
+
+  const nextImage = () => {
+    if (selectedService && serviceImages[selectedService]) {
+      setCurrentImageIndex((prev) => 
+        (prev + 1) % serviceImages[selectedService].length
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedService && serviceImages[selectedService]) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? serviceImages[selectedService].length - 1 : prev - 1
+      );
+    }
+  };
+
+  return (
+    <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50" ref={ref}>
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionTitle
+            title="Usługi"
+            subtitle="Produkcja, renowacja i transport ciężki – kompleksowa obsługa w jednym miejscu"
+            centered
+          />
+        </motion.div>
+
+        <motion.div
+          className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {services.map((service, index) => (
-            <Card key={index} className="p-7 hover:border-l-4 hover:border-primary-600 transition-all duration-200">
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </Card>
+            <motion.div key={index} variants={itemVariants}>
+              <Card 
+                className="p-7 h-full cursor-pointer group hover:shadow-xl hover:border-l-4 hover:border-primary-600 transition-all duration-300"
+                onClick={() => openGallery(service.title)}
+              >
+                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+                <div className="mt-4 flex items-center text-primary-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span>Zobacz zdjęcia</span>
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Facebook link */}
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+        >
+          <a 
+            href="https://www.facebook.com/p/Rob-Tech-100088599331227/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors"
+          >
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span className="font-medium">Więcej realizacji na naszym Facebooku</span>
+          </a>
+        </motion.div>
       </div>
+
+      {/* Image Gallery Modal */}
+      <AnimatePresence>
+        {selectedService && serviceImages[selectedService] && (
+          <motion.div
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeGallery}
+          >
+            <motion.div
+              className="relative max-w-4xl w-full"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={closeGallery}
+                className="absolute -top-12 right-0 text-white text-xl hover:text-gray-300 transition-colors z-10"
+              >
+                ✕ Zamknij
+              </button>
+
+              {/* Service title */}
+              <h3 className="text-white text-2xl font-bold mb-4 text-center">
+                {selectedService}
+              </h3>
+
+              {/* Image */}
+              <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImageIndex}
+                    src={serviceImages[selectedService][currentImageIndex]}
+                    alt={`${selectedService} - zdjęcie ${currentImageIndex + 1}`}
+                    className="w-full h-full object-cover"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </AnimatePresence>
+
+                {/* Navigation arrows */}
+                <button
+                  onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Image indicators */}
+              <div className="flex justify-center gap-2 mt-4">
+                {serviceImages[selectedService].map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      idx === currentImageIndex ? 'bg-white' : 'bg-gray-500 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
