@@ -76,8 +76,7 @@ const Hero: React.FC = () => {
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
           >
-            Przyczepy niskopodłogowe i platformy najazdowe<br />
-            <span className="text-accent-500">z grubych materiałów ~50% taniej</span>
+            Przyczepy niskopodwoziowe i platformy najazdowe
           </motion.h1>
 
           <motion.p
@@ -121,8 +120,8 @@ const Hero: React.FC = () => {
               <p className="text-gray-300 text-sm mt-2">wykonanych zleceń specjalistycznych</p>
             </motion.div>
             <motion.div variants={statsVariants} className="text-center sm:text-left">
-              <p className="text-4xl md:text-5xl font-bold text-accent-500">~50%</p>
-              <p className="text-gray-300 text-sm mt-2">ceny nowego sprzętu</p>
+              <p className="text-4xl md:text-5xl font-bold text-accent-500">100%</p>
+              <p className="text-gray-300 text-sm mt-2">solidny materiał i wykonanie</p>
             </motion.div>
             <motion.div variants={statsVariants} className="text-center sm:text-left">
               <p className="text-4xl md:text-5xl font-bold text-accent-500">16 lat</p>
@@ -143,7 +142,7 @@ const Hero: React.FC = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
           className="cursor-pointer"
-          onClick={() => scrollToSection('#how-it-works')}
+          onClick={() => scrollToSection('#services')}
         >
           <svg className="w-8 h-8 text-white opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />

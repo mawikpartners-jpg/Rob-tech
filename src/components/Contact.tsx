@@ -137,25 +137,25 @@ const Contact: React.FC = () => {
                   <h4 className="font-semibold text-gray-900 mb-2">Adres</h4>
                   <p className="text-gray-600">
                     Rob-Tech<br />
-                    ul. Przemysłowa 15<br />
-                    80-001 Gdańsk<br />
+                    ul. Srebrna 59<br />
+                    85-461 Bydgoszcz<br />
                     Polska
                   </p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Telefon</h4>
-                  <p className="text-gray-600">+48 58 123 45 67</p>
+                  <p className="text-gray-600">601 057 182</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Email</h4>
-                  <p className="text-gray-600">kontakt@rob-tech.pl</p>
+                  <p className="text-gray-600">robert.teresin@gmail.com</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Godziny Pracy</h4>
                   <p className="text-gray-600">
-                    Poniedziałek - Piątek: 08:00 - 17:00<br />
-                    Sobota: 09:00 - 13:00<br />
-                    Niedziela: Zamknięte
+                    Poniedziałek - Piątek: 07:00 - 19:00<br />
+                    Sobota: 08:00 - 17:00<br />
+                    Niedziela: 12:00 - 17:00
                   </p>
                 </div>
               </div>
@@ -170,7 +170,7 @@ const Contact: React.FC = () => {
               <h4 className="text-2xl font-bold mb-3">Szukasz solidnego rozwiązania transportowego?</h4>
               <p className="mb-6 text-primary-100">Skontaktuj się już teraz!</p>
               <a
-                href="tel:+48581234567"
+                href="tel:601057182"
                 className="inline-flex items-center gap-3 bg-white text-primary-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

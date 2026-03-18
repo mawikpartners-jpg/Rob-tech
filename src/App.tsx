@@ -1,8 +1,7 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
-import HowItWorks from './components/HowItWorks';
-import About from './components/About';
 import Services from './components/Services';
+import About from './components/About';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import News from './components/News';
@@ -15,9 +14,8 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <HowItWorks />
-        <About />
         <Services />
+        <About />
         <Gallery />
         <Testimonials />
         <News />

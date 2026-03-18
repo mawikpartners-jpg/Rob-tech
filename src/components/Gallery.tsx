@@ -33,15 +33,15 @@ const Gallery: React.FC = () => {
   };
 
   const galleryImages = [
-    { id: '1', image: '/2024-12-22.webp', alt: 'Przyczepa niskopodwoziowa' },
-    { id: '2', image: '/2024-12-25.webp', alt: 'Transport maszyn rolniczych' },
-    { id: '3', image: '/2024-12-28.webp', alt: 'Platforma ciężarowa' },
-    { id: '4', image: '/2024-12-223.webp', alt: 'Realizacja transport' },
-    { id: '5', image: '/2025-02-02.webp', alt: 'Maszyna budowlana' },
-    { id: '6', image: '/2025-03-01.webp', alt: 'Transport koparki' },
-    { id: '7', image: '/2025-03-071.webp', alt: 'Realizacja spawania' },
-    { id: '8', image: '/2025-04-06.webp', alt: 'Przyczepa gotowa' },
-    { id: '9', image: '/2025-04-07.webp', alt: 'Transport profesjonalny' },
+    { id: '1', image: '/2024-12-22.webp', alt: '' },
+    { id: '2', image: '/2024-12-25.webp', alt: '' },
+    { id: '3', image: '/2024-12-28.webp', alt: '' },
+    { id: '4', image: '/2024-12-223.webp', alt: '' },
+    { id: '5', image: '/2025-02-02.webp', alt: '' },
+    { id: '6', image: '/2025-03-01.webp', alt: '' },
+    { id: '7', image: '/2025-03-071.webp', alt: '' },
+    { id: '8', image: '/2025-04-06.webp', alt: '' },
+    { id: '9', image: '/2025-04-07.webp', alt: '' },
   ];
 
   return (
@@ -78,11 +78,6 @@ const Gallery: React.FC = () => {
                 alt={image.alt}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                <span className="text-white font-medium text-sm bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                  {image.alt}
-                </span>
-              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -107,7 +102,8 @@ const Gallery: React.FC = () => {
             >
               <img
                 src={selectedImage}
-                alt="Powiększony obraz"
+                alt=""
+                title=""
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
               <button

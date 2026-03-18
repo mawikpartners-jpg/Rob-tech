@@ -38,12 +38,50 @@ const Services: React.FC = () => {
   };
 
   const serviceImages: ServiceImages = {
-    'Przyczepy niskopodwoziowe': ['/2024-12-22.webp', '/2024-12-25.webp', '/2025-04-06.webp'],
-    'Platformy najazdowe': ['/2024-12-28.webp', '/2024-12-223.webp', '/2025-02-02.webp'],
-    'Piaskowanie': ['/2025-03-071.webp', '/2024-12-232.webp', '/2024-12-262.webp'],
-    'Spawanie konstrukcji': ['/2025-03-01.webp', '/2024-12-278.webp', '/2025-05-11.webp'],
-    'Transport maszyn rolniczych': ['/2025-04-07.webp', '/2025-05-22.webp', '/2025-05-31.webp'],
-    'Transport maszyn budowlanych': ['/2025-06-04.webp', '/2025-06-06.webp', '/2025-06-13.webp'],
+    'Przyczepy niskopodwoziowe': [
+      '/przyczepy i platformy/przyczepa1 - use it for sure.jpg',
+      '/przyczepy i platformy/przczepa1a-tez use it.jpg',
+      '/przyczepy i platformy/przyczepa 3tez dobre.jpg',
+      '/przyczepy i platformy/przyczepa 4.jpg',
+      '/przyczepy i platformy/przyczepa5.jpg',
+      '/przyczepy i platformy/przyczepa7 kolejne dobre.jpg',
+      '/przyczepy i platformy/przyczepa8.jpg'
+    ],
+    'Platformy najazdowe': [
+      '/przyczepy i platformy/platforma1.jpg',
+      '/przyczepy i platformy/platforma2.jpg',
+      '/przyczepy i platformy/platforma3.jpg',
+      '/przyczepy i platformy/platforma4.jpg',
+      '/przyczepy i platformy/najazd.jpg',
+      '/przyczepy i platformy/najazd2.jpg',
+      '/przyczepy i platformy/najazd3.jpg'
+    ],
+    'Piaskowanie': [
+      '/przyczepy i platformy/przyczepa6-vertical super na proces.jpg',
+      '/2025-03-071.webp',
+      '/2024-12-232.webp'
+    ],
+    'Spawanie konstrukcji': [
+      '/2025-03-01.webp',
+      '/2024-12-278.webp',
+      '/2025-05-11.webp'
+    ],
+    'Transport maszyn rolniczych': [
+      '/transport laweta/PHOTO-2026-02-26-22-27-00.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-19.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-31.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-44.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-55.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-28-14.jpg'
+    ],
+    'Transport maszyn budowlanych': [
+      '/transport laweta/PHOTO-2026-02-26-22-27-34.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-48.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-56.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-27-58.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-28-01.jpg',
+      '/transport laweta/PHOTO-2026-02-26-22-28-15.jpg'
+    ],
   };
 
   const services = [
@@ -55,7 +93,7 @@ const Services: React.FC = () => {
         </svg>
       ),
       title: 'Przyczepy niskopodwoziowe',
-      description: 'Sprzedaż i renowacja przyczep niskopodwoziowych do transportu maszyn rolniczych, budowlanych i drogowych. Udźwig od 10 do 60 t.',
+      description: 'Sprzedaż i renowacja przyczep niskopodwoziowych do transportu maszyn rolniczych, budowlanych i drogowych. Udźwig od 7,5t - 18t DMC.',
     },
     {
       icon: (
@@ -75,7 +113,7 @@ const Services: React.FC = () => {
         </svg>
       ),
       title: 'Piaskowanie',
-      description: 'Piaskowanie strumieniowe do stopnia Sa 2,5 – Sa 3. Przygotowanie powierzchni stalowych pod powłoki antykorozyjne i malarskie.',
+      description: 'Przygotowanie powierzchni stalowych pod powłoki antykorozyjne i malarskie.',
     },
     {
       icon: (
@@ -87,7 +125,7 @@ const Services: React.FC = () => {
         </svg>
       ),
       title: 'Spawanie konstrukcji',
-      description: 'Spawanie metodami MIG/MAG i TIG. Naprawa ram, wzmocnienia, produkcja elementów stalowych na zlecenie. Spawacze z uprawnieniami.',
+      description: 'Naprawa ram, wzmocnienia, produkcja elementów stalowych na zlecenie. Spawacze z uprawnieniami.',
     },
     {
       icon: (
@@ -230,18 +268,14 @@ const Services: React.FC = () => {
                 ✕ Zamknij
               </button>
 
-              {/* Service title */}
-              <h3 className="text-white text-2xl font-bold mb-4 text-center">
-                {selectedService}
-              </h3>
-
               {/* Image */}
               <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentImageIndex}
                     src={serviceImages[selectedService][currentImageIndex]}
-                    alt={`${selectedService} - zdjęcie ${currentImageIndex + 1}`}
+                    alt=""
+                    title=""
                     className="w-full h-full object-cover"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}

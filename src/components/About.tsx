@@ -31,6 +31,7 @@ const About: React.FC = () => {
     },
   };
 
+  /* ARCHIVED - Timeline section (to be restored later with new photos)
   const timelineSteps = [
     { step: 1, title: 'Skupujemy', desc: 'Używane przyczepy / platformy' },
     { step: 2, title: 'Rozbieramy', desc: 'Do gołej bazy' },
@@ -39,6 +40,7 @@ const About: React.FC = () => {
     { step: 5, title: 'Przerabiamy', desc: 'Dostosowujemy do potrzeb' },
     { step: 6, title: 'Instalacje', desc: 'Pneumatyka i elektryka' },
   ];
+  */
 
   const features = [
     {
@@ -104,7 +106,7 @@ const About: React.FC = () => {
           />
         </motion.div>
 
-        {/* Main text */}
+        {/* ARCHIVED - Main text
         <motion.div
           className="mt-12 text-center max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -115,15 +117,15 @@ const About: React.FC = () => {
             Wiemy jak to wygląda w praktyce, dlatego tworzymy rozwiązania, których sami chcielibyśmy używać.
           </p>
         </motion.div>
+        */}
 
-        {/* Timeline */}
+        {/* ARCHIVED - Timeline
         <motion.div
           className="mt-16 relative"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Timeline line */}
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary-200 via-primary-500 to-accent-500 transform -translate-y-1/2 rounded-full" />
           
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-2">
@@ -142,8 +144,9 @@ const About: React.FC = () => {
             ))}
           </div>
         </motion.div>
+        */}
 
-        {/* Before/After images */}
+        {/* ARCHIVED - Before/After images
         <motion.div
           className="mt-16 grid md:grid-cols-2 gap-8"
           initial={{ opacity: 0, y: 30 }}
@@ -171,8 +174,9 @@ const About: React.FC = () => {
             </div>
           </div>
         </motion.div>
+        */}
 
-        {/* Result text */}
+        {/* ARCHIVED - Result text
         <motion.div
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -183,6 +187,36 @@ const About: React.FC = () => {
             Tworzymy trwałe i solidne rozwiązanie na zamówienie - gotowe do intensywnej eksploatacji 
             <span className="text-accent-600 font-bold"> (za połowę ceny)</span>.
           </p>
+        </motion.div>
+        */}
+
+        {/* New product showcase images */}
+        <motion.div
+          className="mt-12 grid md:grid-cols-2 gap-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="relative overflow-hidden rounded-2xl shadow-xl group">
+            <img
+              src="/przyczepy i platformy/przyczepa1 - use it for sure.jpg"
+              alt="Przyczepa niskopodwoziowa"
+              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <span className="text-white font-bold text-xl">Przyczepy niskopodwoziowe</span>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-xl group">
+            <img
+              src="/przyczepy i platformy/platforma1.jpg"
+              alt="Platforma najazdowa"
+              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <span className="text-white font-bold text-xl">Platformy najazdowe</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* Feature cards */}

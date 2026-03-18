@@ -46,18 +46,19 @@ const Footer: React.FC = () => {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Kontakt</h4>
             <ul className="space-y-3 text-gray-400 text-sm">
               <li>
-                <a href="tel:+48581234567" className="hover:text-white transition-colors">
-                  +48 58 123 45 67
+                <a href="tel:601057182" className="hover:text-white transition-colors">
+                  601 057 182
                 </a>
               </li>
               <li>
-                <a href="mailto:kontakt@rob-tech.pl" className="hover:text-white transition-colors">
-                  kontakt@rob-tech.pl
+                <a href="mailto:robert.teresin@gmail.com" className="hover:text-white transition-colors">
+                  robert.teresin@gmail.com
                 </a>
               </li>
               <li className="text-gray-500">
-                Pon – Pt: 08:00 – 17:00<br />
-                Sob: 09:00 – 13:00
+                Pon – Pt: 07:00 – 19:00<br />
+                Sob: 08:00 – 17:00<br />
+                Niedz: 12:00 – 17:00
               </li>
             </ul>
 
