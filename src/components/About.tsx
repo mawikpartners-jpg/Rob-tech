@@ -94,18 +94,6 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <SectionTitle
-            title="Co robimy inaczej?"
-            subtitle="Rob-Tech, solidna firma z zasadami"
-            centered
-          />
-        </motion.div>
-
         {/* ARCHIVED - Main text
         <motion.div
           className="mt-12 text-center max-w-3xl mx-auto"
