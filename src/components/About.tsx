@@ -1,7 +1,6 @@
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import SectionTitle from './UI/SectionTitle';
 import Card from './UI/Card';
 
 const About: React.FC = () => {
