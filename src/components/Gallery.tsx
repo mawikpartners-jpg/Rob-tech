@@ -33,15 +33,15 @@ const Gallery: React.FC = () => {
   };
 
   const galleryImages = [
-    { id: '1', image: '/2024-12-22.webp', alt: '' },
-    { id: '2', image: '/2024-12-25.webp', alt: '' },
-    { id: '3', image: '/2024-12-28.webp', alt: '' },
-    { id: '4', image: '/2024-12-223.webp', alt: '' },
-    { id: '5', image: '/2025-02-02.webp', alt: '' },
-    { id: '6', image: '/2025-03-01.webp', alt: '' },
-    { id: '7', image: '/2025-03-071.webp', alt: '' },
-    { id: '8', image: '/2025-04-06.webp', alt: '' },
-    { id: '9', image: '/2025-04-07.webp', alt: '' },
+    { id: '1', image: '2024-12-22.webp', alt: '' },
+    { id: '2', image: '2024-12-25.webp', alt: '' },
+    { id: '3', image: '2024-12-28.webp', alt: '' },
+    { id: '4', image: '2024-12-223.webp', alt: '' },
+    { id: '5', image: '2025-02-02.webp', alt: '' },
+    { id: '6', image: '2025-03-01.webp', alt: '' },
+    { id: '7', image: '2025-03-071.webp', alt: '' },
+    { id: '8', image: '2025-04-06.webp', alt: '' },
+    { id: '9', image: '2025-04-07.webp', alt: '' },
   ];
 
   return (

@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
       {/* Background image with parallax effect */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/rob-tech hero.jpg')" }}
+        style={{ backgroundImage: "url('rob-tech hero.jpg')" }}
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}

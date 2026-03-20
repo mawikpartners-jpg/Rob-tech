@@ -39,48 +39,48 @@ const Services: React.FC = () => {
 
   const serviceImages: ServiceImages = {
     'Przyczepy niskopodwoziowe': [
-      '/przyczepy i platformy/przyczepa1 - use it for sure.jpg',
-      '/przyczepy i platformy/przczepa1a-tez use it.jpg',
-      '/przyczepy i platformy/przyczepa 3tez dobre.jpg',
-      '/przyczepy i platformy/przyczepa 4.jpg',
-      '/przyczepy i platformy/przyczepa5.jpg',
-      '/przyczepy i platformy/przyczepa7 kolejne dobre.jpg',
-      '/przyczepy i platformy/przyczepa8.jpg'
+      'przyczepy i platformy/przyczepa1 - use it for sure.jpg',
+      'przyczepy i platformy/przczepa1a-tez use it.jpg',
+      'przyczepy i platformy/przyczepa 3tez dobre.jpg',
+      'przyczepy i platformy/przyczepa 4.jpg',
+      'przyczepy i platformy/przyczepa5.jpg',
+      'przyczepy i platformy/przyczepa7 kolejne dobre.jpg',
+      'przyczepy i platformy/przyczepa8.jpg'
     ],
     'Platformy najazdowe': [
-      '/przyczepy i platformy/platforma1.jpg',
-      '/przyczepy i platformy/platforma2.jpg',
-      '/przyczepy i platformy/platforma3.jpg',
-      '/przyczepy i platformy/platforma4.jpg',
-      '/przyczepy i platformy/najazd.jpg',
-      '/przyczepy i platformy/najazd2.jpg',
-      '/przyczepy i platformy/najazd3.jpg'
+      'przyczepy i platformy/platforma1.jpg',
+      'przyczepy i platformy/platforma2.jpg',
+      'przyczepy i platformy/platforma3.jpg',
+      'przyczepy i platformy/platforma4.jpg',
+      'przyczepy i platformy/najazd.jpg',
+      'przyczepy i platformy/najazd2.jpg',
+      'przyczepy i platformy/najazd3.jpg'
     ],
     'Piaskowanie': [
-      '/przyczepy i platformy/przyczepa6-vertical super na proces.jpg',
-      '/2025-03-071.webp',
-      '/2024-12-232.webp'
+      'przyczepy i platformy/przyczepa6-vertical super na proces.jpg',
+      '2025-03-071.webp',
+      '2024-12-232.webp'
     ],
     'Spawanie konstrukcji': [
-      '/2025-03-01.webp',
-      '/2024-12-278.webp',
-      '/2025-05-11.webp'
+      '2025-03-01.webp',
+      '2024-12-278.webp',
+      '2025-05-11.webp'
     ],
     'Transport maszyn rolniczych': [
-      '/transport laweta/PHOTO-2026-02-26-22-27-00.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-19.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-31.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-44.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-55.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-28-14.jpg'
+      'transport laweta/PHOTO-2026-02-26-22-27-00.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-19.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-31.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-44.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-55.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-28-14.jpg'
     ],
     'Transport maszyn budowlanych': [
-      '/transport laweta/PHOTO-2026-02-26-22-27-34.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-48.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-56.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-27-58.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-28-01.jpg',
-      '/transport laweta/PHOTO-2026-02-26-22-28-15.jpg'
+      'transport laweta/PHOTO-2026-02-26-22-27-34.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-48.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-56.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-27-58.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-28-01.jpg',
+      'transport laweta/PHOTO-2026-02-26-22-28-15.jpg'
     ],
   };
 
@@ -236,7 +236,7 @@ const Services: React.FC = () => {
             className="inline-flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
             <span className="font-medium">Więcej realizacji na naszym Facebooku</span>
           </a>

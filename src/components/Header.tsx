@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src="/ROB-TECH LOGO (POZIOM).png"
+              src="ROB-TECH LOGO (POZIOM).png"
               alt="Rob-Tech"
               className="h-10 md:h-12 w-auto"
             />
