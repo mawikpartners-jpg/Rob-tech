@@ -143,7 +143,7 @@ const About: React.FC = () => {
         >
           <div className="relative overflow-hidden rounded-2xl shadow-xl group">
             <img
-              src="/2024-12-22.webp"
+              src="2024-12-22.webp"
               alt="Przed renowacją"
               className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -153,7 +153,7 @@ const About: React.FC = () => {
           </div>
           <div className="relative overflow-hidden rounded-2xl shadow-xl group">
             <img
-              src="/2025-04-06.webp"
+              src="2025-04-06.webp"
               alt="Po renowacji"
               className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -187,7 +187,7 @@ const About: React.FC = () => {
         >
           <div className="relative overflow-hidden rounded-2xl shadow-xl group">
             <img
-              src="/przyczepy i platformy/przyczepa1 - use it for sure.jpg"
+              src="przyczepy i platformy/przyczepa1 - use it for sure.jpg"
               alt="Przyczepa niskopodwoziowa"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -197,7 +197,7 @@ const About: React.FC = () => {
           </div>
           <div className="relative overflow-hidden rounded-2xl shadow-xl group">
             <img
-              src="/przyczepy i platformy/platforma1.jpg"
+              src="przyczepy i platformy/platforma1.jpg"
               alt="Platforma najazdowa"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
             />
