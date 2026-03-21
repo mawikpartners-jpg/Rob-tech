@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
             &copy; {currentYear} Rob-Tech. Wszelkie prawa zastrzeżone.
           </p>
           <p className="text-center text-gray-500 text-sm mt-2">
-            Stworzone z ❤️ przez <a href="https://procesflow.pl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Procesflow</a>
+            Stworzone z ❤️ przez <a href="https://procesflow.pl/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors">Procesflow</a>
           </p>
         </div>
       </div>
