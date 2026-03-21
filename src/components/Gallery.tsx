@@ -54,7 +54,7 @@ const Gallery: React.FC = () => {
         >
           <SectionTitle
             title="Galeria Realizacji"
-            subtitle="Najlepsze projekty naszych klientów"
+            subtitle="Przykładowe projekty naszych klientów"
             centered
           />
         </motion.div>
